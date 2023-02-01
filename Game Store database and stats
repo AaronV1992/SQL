@@ -28,5 +28,5 @@ FROM games;
 
 --what are the top 5 rated games?
 SELECT name, price, rating
-FROM games GROUP BY rating asc
+FROM games GROUP BY rating desc
 limit 5;
