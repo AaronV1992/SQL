@@ -1,0 +1,42 @@
+CREATE TABLE celebrities (id INTEGER PRIMARY KEY,
+    full_name TEXT,
+    birthdate TEXT,
+    race TEXT);
+
+    INSERT INTO celebrities (full_name, birthdate, race)
+    VALUES ("Will Smith", "September 25, 1968", "African American");
+    INSERT INTO celebrities (full_name, birthdate, race)
+    VALUES ("Jada Koren Pinkett", "September 18, 1971", "African American");
+    INSERT INTO celebrities (full_name, birthdate, race)
+    VALUES ("Kit Harington", "December 26, 1986", "english");
+    INSERT INTO celebrities (full_name, birthdate, race)
+    VALUES ("Rose Leslie", "9 February 1987", "scottish");
+
+CREATE TABLE occupation (id INTEGER PRIMARY KEY,
+    persons_id INTEGER,
+    title TEXT);
+
+    INSERT INTO occupation (persons_id, title)
+    VALUES (1, "Fresh Prince");
+    INSERT INTO occupation (persons_id, title)
+    VALUES (2, "performer");
+    INSERT INTO occupation (persons_id, title)
+    VALUES (3, "John Snow");
+    INSERT INTO occupation (persons_id, title)
+    VALUES (4, "Wildling");
+
+    CREATE TABLE celebrity_couples (id INTEGER PRIMARY KEY,
+    person1_id INTEGER,
+    person2_id INTEGER);
+
+INSERT INTO celebrity_couples (person1_id, person2_id)
+    VALUES(1, 2);
+INSERT INTO celebrity_couples (person1_id, person2_id)
+    VALUES(3, 4);
+
+SELECT  a.full_name as Husband, o.title as known_for, b.full_name as Wife, d.title as known_for
+FROM celebrity_couples
+JOIN celebrities a, occupation o
+ON person1_id = a.id AND person1_id = o.id
+JOIN celebrities b, occupation d 
+ON person2_id = b.id AND person2_id = d.id;
