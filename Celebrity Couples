@@ -54,6 +54,8 @@ INSERT INTO celebrity_couples (person1_id, person2_id)
     VALUES(5, 6);
     INSERT INTO celebrity_couples (person1_id, person2_id)
     VALUES(7, 8);
+    
+-- Joining tables based on relation    
 SELECT  a.full_name as Husband, o.title as known_for, b.full_name as Wife, d.title as known_for
 FROM celebrity_couples
 JOIN celebrities a, occupation o
